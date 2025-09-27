@@ -1,0 +1,126 @@
+@use "./variables.scss" as *;
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-main;
+  background: $color-bg;
+  color: $color-text;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app {
+  background: $color-card;
+  border-radius: $radius-lg;
+  padding: $space-lg;
+  box-shadow: $shadow-soft;
+  width: 100%;
+  max-width: 420px;
+}
+
+/* Заголовок */
+.header {
+  text-align: center;
+  margin-bottom: $space-lg;
+}
+
+.header h1 {
+  font-size: $font-size-lg;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Таймер */
+.timer-display {
+  font-size: $font-size-xl;
+  font-weight: bold;
+  text-align: center;
+  padding: $space-md;
+  border-radius: $radius-md;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid $color-border;
+  margin-bottom: $space-md;
+}
+
+/* Кнопки */
+.controls {
+  display: flex;
+  justify-content: space-between;
+  gap: $space-sm;
+  margin-bottom: $space-lg;
+}
+
+.btn {
+  flex: 1;
+  padding: $space-sm $space-md;
+  border: none;
+  border-radius: $radius-sm;
+  background: $color-accent;
+  color: $color-text;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease-in;
+}
+
+.btn:hover {
+  background: $color-accent-hover;
+}
+
+/* Настройки */
+.settings {
+  display: flex;
+  flex-direction: column;
+  gap: $space-md;
+}
+
+.settings label {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.settings input {
+  padding: $space-sm $space-md;
+  border-radius: $radius-sm;
+  border: 1px solid $color-border;
+  background: transparent;
+  color: $color-text;
+  font-size: $font-size-base;
+  outline: none;
+}
+
+.settings input:focus {
+  border-color: $color-accent;
+}
+
+.settings button {
+  margin-top: $space-md;
+}
+
+.variants {
+  display: flex;
+  gap: $space-sm;
+  margin-top: 14px;
+}
+
+.btn2 {
+  padding: $space-sm $space-md;
+  border: none;
+  border-radius: $radius-sm;
+  background: $color-accent-hover;
+  color: $color-text;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease-in;
+}
+
+.btn2:hover {
+  background: $color-accent;
+}
