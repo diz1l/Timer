@@ -1,7 +1,7 @@
 import './styles/global.scss'
 import TimerDisplay from "./components/TimerDisplay";
 import Controls from "./components/Controls";
-// import Settings from "./components/Settings";
+import Settings from "./components/Settings";
 
 export default function App() {
   return (
@@ -13,7 +13,7 @@ export default function App() {
       <main className="main">
         <TimerDisplay />
         <Controls />
-        {/* <Settings /> */}
+        <Settings />
       </main>
     </div>
   );

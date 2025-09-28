@@ -105,12 +105,15 @@ body {
 }
 
 .variants {
+  margin-top: -20px;
   display: flex;
+  justify-content: space-between;
   gap: $space-sm;
-  margin-top: 14px;
+  margin-bottom: $space-lg;
 }
 
 .btn2 {
+  flex: 1;
   padding: $space-sm $space-md;
   border: none;
   border-radius: $radius-sm;
@@ -123,4 +126,10 @@ body {
 
 .btn2:hover {
   background: $color-accent;
+}
+
+.controls-container {
+  display: flex;
+  flex-direction: column;
+  gap: $space-md;
 }

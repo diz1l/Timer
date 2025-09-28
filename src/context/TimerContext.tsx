@@ -14,6 +14,7 @@ interface TimerContextType {
     variants1: () => void;
     variants2: () => void;
     variants3: () => void;
+    setCustomTimes: (focusMin: number, breakMin: number) => void;
 }
 
 const TimerContext = createContext<TimerContextType | null>(null);
@@ -23,18 +24,36 @@ export function TimerProvider({ children }: TimerProviderProps) {
 
     const [timeTic, setTimeTic] = React.useState(counterInitial);
     const [isRunningNow, setIsRunningNow] = React.useState(false);
+    const [focusSeconds, setFocusSeconds] = React.useState(counterInitial);
+    const [breakSeconds, setBreakSeconds] = React.useState(300);
 
     useEffect(() => {
         let interval: ReturnType<typeof setInterval>;
-        if (isRunningNow === true){
+        if (isRunningNow === true) {
             interval = setInterval(() => {
-                setTimeTic((prev) => prev - 1);
+                setTimeTic((prev) => {
+                    if (prev > 0) {
+                        return prev - 1;
+                    } else {
+                        setIsRunningNow(false);
+                        return 0;
+                    }
+                });
             }, 1000);
-        } 
-        
+        }
+
         return () => clearInterval(interval);
-        
+
     }, [isRunningNow]);
+
+    const setCustomTimes = (focusMin: number, breakMin: number) => {
+        setIsRunningNow(false)
+        const focus = Math.max(1, focusMin) * 60
+        const breakF = Math.max(1, breakMin) * 60
+        setFocusSeconds(focus)
+        setBreakSeconds(breakF)
+        setTimeTic(focus)
+    };
 
     // console.log("TimeTic:", timeTic);
     // console.log("isRunningNow:", isRunningNow);
@@ -48,11 +67,12 @@ export function TimerProvider({ children }: TimerProviderProps) {
                 pause: () => setIsRunningNow(false),
                 reset: () => {
                     setIsRunningNow(false);
-                    setTimeTic(counterInitial);
+                    setTimeTic(focusSeconds);
                 },
-                variants1: () => setTimeTic(300),
+                variants1: () => setTimeTic(1),
                 variants2: () => setTimeTic(600),
-                variants3: () => setTimeTic(900), 
+                variants3: () => setTimeTic(900),
+                setCustomTimes,
             }}
         >
             {children}
