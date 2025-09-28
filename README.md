@@ -6,7 +6,9 @@ The timer function has been implemented. It currently supports preset durations 
 ---
 📸 Screenshot
 
-![Screenshot](./public/Screenshot_1.png)
+![Screenshot](./public/Screenshot_1.png) 
+<img width="453" height="584" alt="image" src="https://github.com/user-attachments/assets/cefc8bf5-30f0-42fa-a4c6-1c6b9c48d864" />
+
 ---
 
 ## 🚀 Features
